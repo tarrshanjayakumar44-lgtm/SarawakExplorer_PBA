@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sarawak Explorer | Tour Package Booking</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- jQuery Mobile CSS -->
+    <link
+        rel="stylesheet"
+        href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            background-color: #f6f8f7;
+            color: #26332f;
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            background: rgba(13, 51, 45, 0.97);
+            padding: 15px 0;
+        }
+
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+
+        .navbar-brand span {
+            color: #d9b66f;
+        }
+
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            margin-left: 15px;
+            font-weight: 500;
+        }
+
+
+        .navbar-nav .nav-link:hover {
+            color: #d9b66f !important;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 680px;
+
+            background:
+                linear-gradient(
+                    rgba(6, 38, 32, 0.68),
+                    rgba(6, 38, 32, 0.68)
+                ),
+                url("https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            color: white;
+        }
+
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+
+        .small-title {
+            color: #e2c27a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 14px;
+        }
+
+
+        .hero h1 {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-top: 15px;
+        }
+
+
+        .hero p {
+            font-size: 19px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin-top: 20px;
+        }
+
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+
+        .btn-gold {
+            background-color: #d9b66f;
+            color: #183c34;
+            border: none;
+            padding: 13px 27px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+
+        .btn-gold:hover {
+            background-color: #cba65e;
+            color: #183c34;
+        }
+
+
+        .btn-outline-light-custom {
+            border: 1px solid white;
+            color: white;
+            padding: 12px 27px;
+            border-radius: 8px;
+            margin-left: 10px;
+        }
+
+
+        .btn-outline-light-custom:hover {
+            background: white;
+            color: #183c34;
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        .section {
+            padding: 85px 20px;
+        }
+
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+
+        .section-heading .small-title {
+            color: #9b7835;
+        }
+
+
+        .section-heading h2 {
+            font-size: 42px;
+            color: #183c34;
+            margin-top: 10px;
+        }
+
+
+        .section-heading p {
+            max-width: 650px;
+            margin: auto;
+            color: #66736e;
+        }
+
+
+        /* =========================
+           QUICK INFO
+        ========================= */
+
+        .quick-info {
+            margin-top: -55px;
+            position: relative;
+            z-index: 5;
+        }
+
+
+        .info-card {
+            background: white;
+            border-radius: 14px;
+            padding: 25px;
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+
+            height: 100%;
+        }
+
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+
+            background: #e8f1ee;
+            color: #176b5d;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 23px;
+        }
+
+
+        .info-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+
+        .info-card p {
+            color: #697671;
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           PACKAGE CARDS
+        ========================= */
+
+        .package-card {
+            background: white;
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.09);
+
+            height: 100%;
+
+            transition: 0.3s;
+        }
+
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.14);
+        }
+
+
+        .package-image {
+            height: 230px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+
+        .package-body {
+            padding: 25px;
+        }
+
+
+        .package-body h3 {
+            color: #183c34;
+            font-size: 25px;
+        }
+
+
+        .package-description {
+            color: #6a7772;
+            min-height: 70px;
+        }
+
+
+        .package-price {
+            color: #b3842c;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+
+        .duration {
+            display: inline-block;
+
+            background: #eaf3f0;
+            color: #176b5d;
+
+            padding: 6px 12px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+
+        .package-list {
+            padding-left: 20px;
+            color: #56635f;
+        }
+
+
+        .package-list li {
+            margin-bottom: 7px;
+        }
+
+
+        /* =========================
+           DESTINATION SECTION
+        ========================= */
+
+        .destination-card {
+            position: relative;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+
+        .destination-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+
+        .destination-card:hover img {
+            transform: scale(1.08);
+        }
+
+
+        .destination-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    transparent 35%,
+                    rgba(0, 0, 0, 0.75)
+                );
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 25px;
+
+            color: white;
+        }
+
+
+        .destination-overlay h3 {
+            margin: 0;
+            font-size: 27px;
+        }
+
+
+        /* =========================
+           WHY CHOOSE US
+        ========================= */
+
+        .why-box {
+            padding: 25px;
+            border-radius: 15px;
+            background: white;
+            height: 100%;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+        }
+
+
+        .why-icon {
+            font-size: 35px;
+            color: #b3842c;
+        }
+
+
+        .why-box h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+
+        .why-box p {
+            color: #6a7772;
+        }
+
+
+        /* =========================
+           BOOKING
+        ========================= */
+
+        .booking-section {
+            background:
+                linear-gradient(
+                    rgba(10, 57, 48, 0.94),
+                    rgba(10, 57, 48, 0.94)
+                ),
+                url("https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .booking-section .section-heading h2 {
+            color: white;
+        }
+
+
+        .booking-section .section-heading p {
+            color: #d3ddda;
+        }
+
+
+        .booking-box {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        }
+
+
+        label {
+            font-weight: 700;
+            margin-top: 15px;
+            color: #35423e;
+        }
+
+
+        .form-control,
+        .form-select {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #d7dfdc;
+        }
+
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #176b5d;
+            box-shadow: 0 0 0 3px rgba(23,107,93,0.1);
+        }
+
+
+        .error-message {
+            color: #d93025;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           PRICE SUMMARY
+        ========================= */
+
+        .price-summary {
+            background: #f2f7f5;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+
+        .price-summary h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+        }
+
+
+        .total-price {
+            color: #176b5d;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           SUCCESS MESSAGE
+        ========================= */
+
+        #successMessage {
+            display: none;
+
+            background: #dff3e7;
+            color: #176b45;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            background: #f1f5f3;
+        }
+
+
+        .contact-card {
+            background: #183c34;
+            color: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            height: 100%;
+        }
+
+
+        .contact-card h3 {
+            font-size: 30px;
+        }
+
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+
+        .contact-item i {
+            font-size: 23px;
+            color: #d9b66f;
+            margin-right: 15px;
+        }
+
+
+        .contact-item p {
+            margin: 0;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0d2d27;
+            color: #bfcac6;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+
+        footer h4 {
+            color: white;
+        }
+
+
+        /* =========================
+           FLOATING CONTACT
+        ========================= */
+
+        .floating-phone {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #176b5d;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 24px;
+
+            text-decoration: none;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+
+            z-index: 1000;
+        }
+
+
+        .floating-phone:hover {
+            background: #0d5146;
+            color: white;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .hero {
+                min-height: 620px;
+            }
+
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+
+            .hero p {
+                font-size: 16px;
+            }
+
+
+            .btn-outline-light-custom {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+
+            .section {
+                padding: 60px 15px;
+            }
+
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+
+            .quick-info {
+                margin-top: -30px;
+            }
+
+
+            .booking-box {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+            Sarawak <span>Explorer</span>
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#home"
+                        data-transition="slide">
+                        Home
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#packages"
+                        data-transition="slide">
+                        Packages
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#destinations"
+                        data-transition="slide">
+                        Destinations
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#booking"
+                        data-transition="slide">
+                        Booking
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="#contact"
+                        data-transition="slide">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<div data-role="page" id="home">
+
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="small-title">
+                    Discover Sarawak
+                </div>
+
+
+                <h1>
+                    Your Journey Into
+                    The Heart of Borneo
+                </h1>
+
+
+                <p>
+                    Explore breathtaking rainforests, rich
+                    cultures, historic cities and unforgettable
+                    adventures across Sarawak.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#packages"
+                        class="btn btn-gold"
+                        data-transition="slide">
+
+                        Explore Packages
+                    </a>
+
+
+                    <a
+                        href="#booking"
+                        class="btn btn-outline-light-custom"
+                        data-transition="slide">
+
+                        Book Your Adventure
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- QUICK INFORMATION -->
+
+    <section class="quick-info">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            <i class="bi bi-map"></i>
+                        </div>
+
+                        <h4>
+                            Amazing Destinations
+                        </h4>
+
+                        <p>
+                            Discover some of Sarawak's most
+                            memorable destinations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+
+                        <h4>
+                            Easy Booking
+                        </h4>
+
+                        <p>
+                            Choose your package and submit
+                            your travel details easily.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+
+                        <h4>
+                            Mobile Friendly
+                        </h4>
+
+                        <p>
+                            Designed to work smoothly on
+                            computers, tablets and smartphones.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     PACKAGES
+===================================================== -->
+
+<div data-role="page" id="packages">
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="small-title">
+                    Explore With Us
+                </div>
+
+                <h2>
+                    Featured Tour Packages
+                </h2>
+
+                <p>
+                    Choose an experience that matches the way
+                    you want to explore Sarawak.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <!-- KUCHING -->
+
+                <div class="col-lg-4">
+
+                    <div class="package-card">
+
+                        <img
+                            class="package-image"
+                            src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=900&q=85"
+                            alt="Kuching Sarawak">
+
+
+                        <div class="package-body">
+
+                            <span class="duration">
+                                <i class="bi bi-clock"></i>
+                                1 Day
+                            </span>
+
+
+                            <h3 class="mt-3">
+                                Kuching Heritage Escape
+                            </h3>
+
+
+                            <p class="package-description">
+                                Discover the heritage, culture and
+                                riverside attractions of Kuching.
+                            </p>
+
+
+                            <ul class="package-list">
+
+                                <li>
+                                    Kuching Waterfront
+                                </li>
+
+                                <li>
+                                    Main Bazaar
+                                </li>
+
+                                <li>
+                                    Heritage attractions
+                                </li>
+
+                            </ul>
+
+
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+
+                                <div class="package-price">
+                                    RM 180
+                                </div>
+
+
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    data-bs-toggle="popover"
+                                    data-bs-title="Package Information"
+                                    data-bs-content="A one-day cultural and heritage experience around Kuching.">
+
+                                    More Info
+
+                                </button>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-gold w-100 mt-3"
+                                onclick="selectPackage('Kuching Heritage Escape')">
+
+                                Book This Package
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BAKO -->
+
+                <div class="col-lg-4">
+
+                    <div class="package-card">
+
+                        <img
+                            class="package-image"
+                            src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=900&q=85"
+                            alt="Sarawak rainforest">
+
+
+                        <div class="package-body">
+
+                            <span class="duration">
+                                <i class="bi bi-clock"></i>
+                                1 Day
+                            </span>
+
+
+                            <h3 class="mt-3">
+                                Bako Nature Adventure
+                            </h3>
+
+
+                            <p class="package-description">
+                                Experience rainforest trails,
+                                wildlife and beautiful coastal scenery.
+                            </p>
+
+
+                            <ul class="package-list">
+
+                                <li>
+                                    Nature trekking
+                                </li>
+
+                                <li>
+                                    Wildlife spotting
+                                </li>
+
+                                <li>
+                                    Coastal scenery
+                                </li>
+
+                            </ul>
+
+
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+
+                                <div class="package-price">
+                                    RM 250
+                                </div>
+
+
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    data-bs-toggle="popover"
+                                    data-bs-title="Package Information"
+                                    data-bs-content="A nature-focused day trip inspired by Bako National Park's rainforest, wildlife and coastal landscapes.">
+
+                                    More Info
+
+                                </button>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-gold w-100 mt-3"
+                                onclick="selectPackage('Bako Nature Adventure')">
+
+                                Book This Package
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MULU -->
+
+                <div class="col-lg-4">
+
+                    <div class="package-card">
+
+                        <img
+                            class="package-image"
+                            src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85"
+                            alt="Mulu rainforest">
+
+
+                        <div class="package-body">
+
+                            <span class="duration">
+                                <i class="bi bi-clock"></i>
+                                3 Days 2 Nights
+                            </span>
+
+
+                            <h3 class="mt-3">
+                                Mulu Rainforest Adventure
+                            </h3>
+
+
+                            <p class="package-description">
+                                Discover the extraordinary caves,
+                                rainforest and natural landscapes of Mulu.
+                            </p>
+
+
+                            <ul class="package-list">
+
+                                <li>
+                                    Cave exploration
+                                </li>
+
+                                <li>
+                                    Rainforest experience
+                                </li>
+
+                                <li>
+                                    Guided activities
+                                </li>
+
+                            </ul>
+
+
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+
+                                <div class="package-price">
+                                    RM 450
+                                </div>
+
+
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    data-bs-toggle="popover"
+                                    data-bs-title="Package Information"
+                                    data-bs-content="A multi-day adventure inspired by Mulu's famous caves, rainforest and natural attractions.">
+
+                                    More Info
+
+                                </button>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-gold w-100 mt-3"
+                                onclick="selectPackage('Mulu Rainforest Adventure')">
+
+                                Book This Package
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =====================================================
+     DESTINATIONS
+===================================================== -->
+
+<div data-role="page" id="destinations">
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="small-title">
+                    Places To Discover
+                </div>
+
+                <h2>
+                    Explore Sarawak
+                </h2>
+
+                <p>
+                    From historic city streets to rainforest
+                    wilderness, Sarawak offers many different
+                    travel experiences.
+                </p>
+
+            </div>
+
+
+            <div class="row">
+
+
+                <div class="col-md-4">
+
+                    <div class="destination-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85"
+                            alt="Kuching">
+
+
+                        <div class="destination-overlay">
+
+                            <div>
+
+                                <h3>
+                                    Kuching
+                                </h3>
+
+                                <p class="mb-0">
+                                    Heritage & Culture
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+                    <div class="destination-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85"
+                            alt="Bako rainforest">
+
+
+                        <div class="destination-overlay">
+
+                            <div>
+
+                                <h3>
+                                    Bako
+                                </h3>
+
+                                <p class="mb-0">
+                                    Wildlife & Nature
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
+
+                    <div class="destination-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85"
+                            alt="Mulu mountains">
+
+
+                        <div class="destination-overlay">
+
+                            <div>
+
+                                <h3>
+                                    Mulu
+                                </h3>
+
+                                <p class="mb-0">
+                                    Caves & Adventure
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                Sarawak Explorer
+            </div>
+
+            <h2>
+                Why Travel With Us?
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-3">
+
+                <div class="why-box">
+
+                    <div class="why-icon">
+                        <i class="bi bi-compass"></i>
+                    </div>
+
+                    <h4>
+                        Local Experiences
+                    </h4>
+
+                    <p>
+                        Discover destinations and activities
+                        inspired by Sarawak's natural and
+                        cultural attractions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-3">
+
+                <div class="why-box">
+
+                    <div class="why-icon">
+                        <i class="bi bi-calendar2-check"></i>
+                    </div>
+
+                    <h4>
+                        Simple Booking
+                    </h4>
+
+                    <p>
+                        Submit your travel information
+                        through our easy online booking form.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-3">
+
+                <div class="why-box">
+
+                    <div class="why-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+
+                    <h4>
+                        Clear Information
+                    </h4>
+
+                    <p>
+                        Package information and estimated
+                        prices are displayed clearly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-3">
+
+                <div class="why-box">
+
+                    <div class="why-icon">
+                        <i class="bi bi-phone"></i>
+                    </div>
+
+                    <h4>
+                        Mobile Ready
+                    </h4>
+
+                    <p>
+                        Designed for both desktop and
+                        smartphone users.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BOOKING
+===================================================== -->
+
+<div data-role="page" id="booking">
+
+    <section class="section booking-section">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div class="small-title">
+                    Reserve Your Trip
+                </div>
+
+                <h2>
+                    Tour Package Booking
+                </h2>
+
+                <p>
+                    Fill in your details below to submit
+                    your booking request.
+                </p>
+
+            </div>
+
+
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8">
+
+
+                    <div class="booking-box">
+
+
+                        <form id="bookingForm">
+
+
+                            <!-- NAME -->
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                class="form-control"
+                                placeholder="Enter your full name">
+
+                            <div
+                                id="nameError"
+                                class="error-message">
+                            </div>
+
+
+
+                            <!-- EMAIL -->
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="example@gmail.com">
+
+                            <div
+                                id="emailError"
+                                class="error-message">
+                            </div>
+
+
+
+                            <!-- PHONE -->
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="phone"
+                                class="form-control"
+                                placeholder="0182651710">
+
+                            <div
+                                id="phoneError"
+                                class="error-message">
+                            </div>
+
+
+
+                            <!-- DATE -->
+
+                            <label for="travelDate">
+                                Travel Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="travelDate"
+                                class="form-control">
+
+                            <div
+                                id="dateError"
+                                class="error-message">
+                            </div>
+
+
+
+                            <!-- PARTICIPANTS -->
+
+                            <label for="participants">
+                                Number of Participants
+                            </label>
+
+                            <input
+                                type="number"
+                                id="participants"
+                                class="form-control"
+                                min="1"
+                                max="50"
+                                value="1"
+                                onchange="calculateTotal()"
+                                onkeyup="calculateTotal()">
+
+                            <div
+                                id="participantsError"
+                                class="error-message">
+                            </div>
+
+
+
+                            <!-- PACKAGE -->
+
+                            <label for="tourPackage">
+                                Select Tour Package
+                            </label>
+
+                            <select
+                                id="tourPackage"
+                                class="form-select"
+                                onchange="calculateTotal()">
+
+                                <option value="">
+                                    -- Select Package --
+                                </option>
+
+                                <option
+                                    value="Kuching Heritage Escape"
+                                    data-price="180">
+
+                                    Kuching Heritage Escape - RM180
+
+                                </option>
+
+                                <option
+                                    value="Bako Nature Adventure"
+                                    data-price="250">
+
+                                    Bako Nature Adventure - RM250
+
+                                </option>
+
+                                <option
+                                    value="Mulu Rainforest Adventure"
+                                    data-price="450">
+
+                                    Mulu Rainforest Adventure - RM450
+
+                                </option>
+
+                            </select>
+
+                            <div
+                                id="packageError"
+                                class="error-message">
+                            </div>
+
+
+
+                            <!-- PRICE SUMMARY -->
+
+                            <div class="price-summary">
+
+                                <h4>
+                                    Booking Summary
+                                </h4>
+
+
+                                <p class="mb-1">
+                                    Package:
+                                    <strong id="summaryPackage">
+                                        Not selected
+                                    </strong>
+                                </p>
+
+
+                                <p class="mb-1">
+                                    Participants:
+                                    <strong id="summaryParticipants">
+                                        0
+                                    </strong>
+                                </p>
+
+
+                                <p class="mb-0">
+                                    Estimated Total:
+                                </p>
+
+
+                                <div
+                                    class="total-price"
+                                    id="totalPrice">
+
+                                    RM 0
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- CONSENT -->
+
+                            <div class="form-check mt-4">
+
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="consent">
+
+
+                                <label
+                                    class="form-check-label"
+                                    for="consent">
+
+                                    I agree to the collection and
+                                    responsible use of my personal
+                                    information for booking purposes.
+
+                                </label>
+
+                            </div>
+
+
+                            <div
+                                id="consentError"
+                                class="error-message">
+                            </div>
+
+
+
+                            <div class="mt-4">
+
+
+                                <button
+                                    type="button"
+                                    class="btn btn-gold"
+                                    onclick="validateBooking()">
+
+                                    <i class="bi bi-check-circle"></i>
+                                    Submit Booking
+
+                                </button>
+
+
+                                <button
+                                    type="reset"
+                                    class="btn btn-secondary ms-2"
+                                    onclick="clearErrors()">
+
+                                    Reset
+
+                                </button>
+
+
+                            </div>
+
+
+
+                            <!-- SUCCESS -->
+
+                            <div id="successMessage">
+
+                                <strong>
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Booking Submitted Successfully!
+                                </strong>
+
+                                <br><br>
+
+                                Thank you for choosing
+                                <strong>Sarawak Explorer</strong>.
+                                We will contact you using the
+                                information provided.
+
+                            </div>
+
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<div data-role="page" id="contact">
+
+    <section class="section contact-section">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+
+                <div class="col-lg-6">
+
+                    <div class="contact-card">
+
+                        <div class="small-title">
+                            Get In Touch
+                        </div>
+
+
+                        <h3 class="mt-3">
+                            Let's Plan Your Sarawak Adventure
+                        </h3>
+
+
+                        <p class="mt-3">
+                            Have questions about our tour packages?
+                            Contact Sarawak Explorer for more information.
+                        </p>
+
+
+                        <div class="contact-item">
+
+                            <i class="bi bi-telephone-fill"></i>
+
+                            <p>
+                                <strong>0182651710</strong>
+                                <br>
+                                Main Contact
+                            </p>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <i class="bi bi-telephone"></i>
+
+                            <p>
+                                <strong>01110769086</strong>
+                                <br>
+                                Alternative Contact
+                            </p>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <i class="bi bi-envelope-fill"></i>
+
+                            <p>
+                                <strong>
+                                    tarrshankumar@gmail.com
+                                </strong>
+                                <br>
+                                Email
+                            </p>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <i class="bi bi-geo-alt-fill"></i>
+
+                            <p>
+                                <strong>
+                                    Sarawak, Malaysia
+                                </strong>
+                                <br>
+                                Tour Destination
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-6">
+
+                    <div class="booking-box">
+
+                        <h3>
+                            Send Us A Message
+                        </h3>
+
+                        <p class="text-muted">
+                            We would be happy to answer your questions.
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-gold mt-3"
+                            data-bs-toggle="modal"
+                            data-bs-target="#contactModal">
+
+                            <i class="bi bi-chat-dots"></i>
+                            Open Contact Form
+
+                        </button>
+
+
+                        <a
+                            href="tel:0182651710"
+                            class="btn btn-outline-success mt-3 ms-2">
+
+                            <i class="bi bi-telephone"></i>
+                            Call Us
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =====================================================
+     CONTACT MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="contactModal"
+    tabindex="-1">
+
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Contact Sarawak Explorer
+                </h5>
+
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your name">
+
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email">
+
+
+                <label>
+                    Message
+                </label>
+
+                <textarea
+                    class="form-control"
+                    rows="5"
+                    placeholder="How can we help you?"></textarea>
+
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Close
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-gold"
+                    onclick="sendMessage()">
+
+                    Send Message
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <h4>
+            Sarawak Explorer
+        </h4>
+
+        <p>
+            Tour Package Booking System
+        </p>
+
+        <p>
+            📞 0182651710
+            &nbsp; | &nbsp;
+            📧 tarrshankumar@gmail.com
+        </p>
+
+        <hr>
+
+        <small>
+            © 2026 Sarawak Explorer. All Rights Reserved.
+        </small>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     FLOATING PHONE BUTTON
+===================================================== -->
+
+<a
+    href="tel:0182651710"
+    class="floating-phone"
+    title="Call Sarawak Explorer">
+
+    <i class="bi bi-telephone-fill"></i>
+
+</a>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT LIBRARIES
+===================================================== -->
+
+<script
+    src="https://code.jquery.com/jquery-3.7.1.min.js">
+</script>
+
+
+<script
+    src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+</script>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* ================================
+   TOOLTIP
+================================ */
+
+const tooltipList =
+    document.querySelectorAll('[data-bs-toggle="tooltip"]');
+
+tooltipList.forEach(function (tooltip) {
+
+    new bootstrap.Tooltip(tooltip);
+
+});
+
+
+
+/* ================================
+   POPOVER
+================================ */
+
+const popoverList =
+    document.querySelectorAll('[data-bs-toggle="popover"]');
+
+popoverList.forEach(function (popover) {
+
+    new bootstrap.Popover(popover);
+
+});
+
+
+
+/* ================================
+   SELECT PACKAGE
+================================ */
+
+function selectPackage(packageName) {
+
+    document.getElementById("tourPackage").value =
+        packageName;
+
+    calculateTotal();
+
+    window.location.hash = "booking";
+
+}
+
+
+
+/* ================================
+   CALCULATE TOTAL PRICE
+================================ */
+
+function calculateTotal() {
+
+
+    let packageSelect =
+        document.getElementById("tourPackage");
+
+
+    let participants =
+        document.getElementById("participants").value;
+
+
+    let selectedOption =
+        packageSelect.options[
+            packageSelect.selectedIndex
+        ];
+
+
+    let price =
+        selectedOption.getAttribute("data-price");
+
+
+    if (price === null) {
+
+        price = 0;
+
+    }
+
+
+    if (participants === "") {
+
+        participants = 0;
+
+    }
+
+
+    let total =
+        price * participants;
+
+
+    document.getElementById("summaryPackage").innerHTML =
+        packageSelect.value !== ""
+        ? packageSelect.value
+        : "Not selected";
+
+
+    document.getElementById("summaryParticipants").innerHTML =
+        participants;
+
+
+    document.getElementById("totalPrice").innerHTML =
+        "RM " + total.toFixed(2);
+
+}
+
+
+
+/* ================================
+   VALIDATE BOOKING
+================================ */
+
+function validateBooking() {
+
+
+    let name =
+        document.getElementById("name").value.trim();
+
+
+    let email =
+        document.getElementById("email").value.trim();
+
+
+    let phone =
+        document.getElementById("phone").value.trim();
+
+
+    let travelDate =
+        document.getElementById("travelDate").value;
+
+
+    let participants =
+        document.getElementById("participants").value;
+
+
+    let tourPackage =
+        document.getElementById("tourPackage").value;
+
+
+    let consent =
+        document.getElementById("consent").checked;
+
+
+    clearErrors();
+
+
+    let valid = true;
+
+
+
+    /* NAME */
+
+    if (name === "") {
+
+        document.getElementById("nameError").innerHTML =
+            "Please enter your full name.";
+
+        valid = false;
+
+    }
+
+
+
+    /* EMAIL */
+
+    if (email === "") {
+
+        document.getElementById("emailError").innerHTML =
+            "Please enter your email address.";
+
+        valid = false;
+
+    }
+
+    else if (!email.includes("@")) {
+
+        document.getElementById("emailError").innerHTML =
+            "Please enter a valid email address.";
+
+        valid = false;
+
+    }
+
+
+
+    /* PHONE */
+
+    if (phone === "") {
+
+        document.getElementById("phoneError").innerHTML =
+            "Please enter your phone number.";
+
+        valid = false;
+
+    }
+
+    else if (!/^[0-9]+$/.test(phone)) {
+
+        document.getElementById("phoneError").innerHTML =
+            "Phone number must contain numbers only.";
+
+        valid = false;
+
+    }
+
+    else if (phone.length < 10) {
+
+        document.getElementById("phoneError").innerHTML =
+            "Please enter a valid phone number.";
+
+        valid = false;
+
+    }
+
+
+
+    /* DATE */
+
+    if (travelDate === "") {
+
+        document.getElementById("dateError").innerHTML =
+            "Please select your travel date.";
+
+        valid = false;
+
+    }
+
+
+
+    /* PARTICIPANTS */
+
+    if (participants === "") {
+
+        document.getElementById("participantsError").innerHTML =
+            "Please enter the number of participants.";
+
+        valid = false;
+
+    }
+
+    else if (participants < 1) {
+
+        document.getElementById("participantsError").innerHTML =
+            "At least 1 participant is required.";
+
+        valid = false;
+
+    }
+
+
+
+    /* PACKAGE */
+
+    if (tourPackage === "") {
+
+        document.getElementById("packageError").innerHTML =
+            "Please select a tour package.";
+
+        valid = false;
+
+    }
+
+
+
+    /* CONSENT */
+
+    if (!consent) {
+
+        document.getElementById("consentError").innerHTML =
+            "Please provide consent before submitting the booking.";
+
+        valid = false;
+
+    }
+
+
+
+    /* SUCCESS */
+
+    if (valid === true) {
+
+
+        document.getElementById("successMessage").style.display =
+            "block";
+
+
+        alert(
+            "Booking submitted successfully!"
+        );
+
+
+        document.getElementById("successMessage")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+}
+
+
+
+/* ================================
+   CLEAR ERRORS
+================================ */
+
+function clearErrors() {
+
+
+    document.getElementById("nameError").innerHTML = "";
+
+    document.getElementById("emailError").innerHTML = "";
+
+    document.getElementById("phoneError").innerHTML = "";
+
+    document.getElementById("dateError").innerHTML = "";
+
+    document.getElementById("participantsError").innerHTML = "";
+
+    document.getElementById("packageError").innerHTML = "";
+
+    document.getElementById("consentError").innerHTML = "";
+
+
+    document.getElementById("successMessage").style.display =
+        "none";
+
+}
+
+
+
+/* ================================
+   CONTACT MESSAGE
+================================ */
+
+function sendMessage() {
+
+    alert(
+        "Thank you for contacting Sarawak Explorer!"
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
